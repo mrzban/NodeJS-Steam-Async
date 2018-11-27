@@ -1,6 +1,6 @@
 # Steam Web API for NodeJS (Async / await)
 
-## [Full Documentation on GH Pages](http://tidwell.github.io/nodeSteam/)
+## [Full Documentation on GH Pages](https://mrzban.github.io/NodeJS-Steam-Async/)
 
 A [node.js](http://github.com/joyent/node) wrapper for Valve's [Steam Web API](http://developer.valvesoftware.com/wiki/Steam_Web_API).  Also supports the methods provided for [TF2/TF2Beta/Portal](http://wiki.teamfortress.com/wiki/WebAPI).
 
@@ -162,8 +162,6 @@ s.getPlayerSummaries({
 s.getFriendList({
   steamid: '76561197960435530',
   relationship: 'all', //'all' or 'friend'
-  callback: function(err,data) {
-    console.log(data);
   },
 })
 s.getSchema({
@@ -175,16 +173,12 @@ s.getPlayerItems({
 })
 s.getAssetPrices({
   appid: 440,  //can also use gameid instead for convenience
-  callback: function(err,data) {
-    console.log(data);
   }
 })
 s.getPlayerAchievements({
   gameid: 440,
   steamid: '76561197960435530',
   l: 'en',
-  callback: function(err,data) {
-    console.log(data);
   }
 })
 s.getRecentlyPlayedGames({
@@ -202,35 +196,25 @@ s.getOwnedGames({
 s.getUserStatsForGame({
   steamid: '76561197963506690',
   appid: 730,
-  callback: function(err,data) {
-    console.log(data);
   }
 })
 s.getGlobalStatsForGame({
   appid: 17740,
   name: ['global.map.emp_isle'], // can also pass a single string
   count: 1, // or you can let the module work it out for you
-  callback: function(err,data) {
-    console.log(data);
   }
 })
 s.isPlayingSharedGame({
   steamid: '76561198120639625',
   appid_playing: 730,
-  callback: function(err,data) {
-    console.log(data);
   }
 })
 s.getSchemaForGame({
   appid: 730,
-  callback: function(err,data) {
-    console.log(data);
   }
 })
 s.getPlayerBans({
   steamids: ['76561198120639625'], // can also pass a single string
-  callback: function(err,data) {
-    console.log(data);
   }
 })
 s.getAppList(
@@ -255,10 +239,7 @@ s.getSteamLevel({
   steamid: '76561197960435530'
 })    
 s.getBadges({
-  steamid: '76561197960435530',
-  callback: function(err, data) {
-    console.log(data);   
-  }
+  steamid: '76561197960435530'
 })
 s.getCommunityBadgeProgress({
   steamid: '76561197960435530',
@@ -289,10 +270,7 @@ s.getAssetClassInfo({
   appid: 440, //can also use gameid instead for convenience
   classid0: '16891096',
   classid1: 151,
-  class_count: 2,
-  callback: function(err,data) {
-    console.log(data);
-  }
+  class_count: 2
 })
 ```
 
@@ -302,10 +280,7 @@ OR, we have provided a convenience property so you can just pass an array of ids
 ```javascript
 s.getAssetClassInfo({
   appid: 440, //can also use gameid instead for convenience
-  classIds: ['16891096',151],
-  callback: function(err,data) {
-    console.log(data);
-  }
+  classIds: ['16891096',151]
 })
 ```
 ## Changes
