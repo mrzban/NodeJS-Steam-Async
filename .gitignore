@@ -1,3 +1,5 @@
 test/key.js
 node_modules/
 coverage/
+check/
+package-lock.json
