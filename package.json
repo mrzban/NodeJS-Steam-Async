@@ -1,6 +1,6 @@
 {
   "name": "steam-web-async",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Async wrapper for Steam Web API",
   "main": "./lib/steam_async",
   "scripts": {
