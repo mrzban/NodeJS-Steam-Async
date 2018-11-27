@@ -14,6 +14,32 @@ This implementation is not supported, endorsed, or created by Valve - I'm just a
 $ npm install steam-web-async
 ```
 
+## Basic idea and usage
+
+```javascript
+const SteamWebAsync = require('steam-web-async');
+
+
+
+var apiSWA = new SteamWebAsync({
+    apiKey: '6A734940D66F571698692EE0F3816E12',
+    format: 'json' //optional ['json', 'xml', 'vdf']
+});
+
+
+//examples of Async code
+(async () => {
+    
+    var news = await apiSWA.getNewsForApp({appid: 440,count: 3, maxlength: 100})
+    console.log(news);
+
+    var acc = await apiSWA.resolveVanityURL({ vanityurl: 'Gabe'}); 
+    console.log( acc.response);
+
+})();
+
+```
+
 ### Methods
 
 All methods accept a single options object.  The key names match the query string parameters specified in the valve documentation. See usage and the valve documentation for any additional params.
@@ -282,116 +308,10 @@ s.getAssetClassInfo({
   }
 })
 ```
-
-### Run Tests
-[![Build Status](https://travis-ci.org/Tidwell/nodeSteam.svg?branch=master)](https://travis-ci.org/Tidwell/nodeSteam)
-
-```bash
-$ npm test
-```
-
-### Run JsFmt/JsHint
-
-```bash
-$ npm run format
-```
-
-```bash
-$ npm run lint
-```
-
-### Generate Docs
-
-```bash
-$ npm run docs
-```
-
-### Generate Coverage Report
-
-```bash
-$ npm run coverage
-```
-
-### All (travis integration tests)
-
-```bash
-$ npm run integrate
-```
-
 ## Changes
 
-#### 0.7.0
-* Add error handler to catch all 4XX http error codes
-* Add deprecation information to getPlayerItems for CS:GO
+#### 1.0.0
+* Added async / await support
+* Added error handler (console output)
 
-#### 0.6.0
-* Add apiVersion config property to all methods for changing generated enpoints (#24)
-* Add tests for addVersion method (#24)
-* Split tests into multiple .spec files
-* Fix jsfmt for proper indentation
-* Marked private methods as private (hidden in docs)
-* Update tasks in Readme
 
-#### 0.5.0
-* Fix README styling (#18)
-* Improve code documentation (#17)
-* Add lint build task
-* Add format build task
-* Add docs build task
-* Add coverage build task
-* Update AUTHORS file
-
-#### 0.4.0
-* Added getAppList
-* Added getServersAtAddress
-* Added upToDateCheck
-* Added getUserGroupList
-* Added resolveVanityURL
-* Added getNumberOfCurrentPlayers
-* Added getSteamLevel
-* Added getBadges
-* Added getCommunityBadgeProgress
-* Added getServerInfo
-* Added getSupportedAPIList
-* Added getSchemaURL
-* Added getStoreMetadata
-* Added getStoreStatus
-* Updated Readme and tests
-* Updated AUTHORS file
-
-#### 0.3.0
-* Added getGlobalStatsForGame
-* Added isPlayingSharedGame
-* Added getSchemaForGame
-* Added getPlayerBans
-* Replaced tests with chai/mocha
-* Updated Readme
-* Added AUTHORS file
-
-#### 0.2.5
-* Added error handling for invalid api keys
-* Added tests and README
-
-#### 0.2.4
-* Added getUserStatsForGame
-* Updated README and tests, added gitignore
-
-#### 0.2.3
-* Added getOwnedGames
-* Added getRecentlyPlayedGames
-* Add getPlayerAchievements method
-* Add an error handler to the HTTP get request. This will capture ETIMEDOUT and other connections errors.
-* Updated README and tests with new methods
-
-#### 0.2.1
-* Changed npm module to steam-web to allow https://github.com/seishun/node-steam to use steam npm module name, update your dependencies.
-
-#### 0.1.3
-* Implemented new API methods from 12/1/2011 update: getAssetClassInfo, getAssetPrices, and getFriendList
-* Fixed bug where callbacks were fired twice for certain error events
-* Added convenience property to getAssetClassInfo (classIds instead of forcing manual property generation)
-
-#### 0.1.2
-* Changed requirements to node >= 0.4.0
-* Modified API so first argument of all callbacks is err (to correspond with standard practices)
-* Additional error handling (though methods will return empty arrays if invalid ids are sent to steam
