@@ -1,4 +1,4 @@
-# steam-web
+# Steam Web API for NodeJS (Async / await)
 
 ## [Full Documentation on GH Pages](http://tidwell.github.io/nodeSteam/)
 
@@ -22,7 +22,7 @@ const SteamWebAsync = require('steam-web-async');
 
 
 var apiSWA = new SteamWebAsync({
-    apiKey: '6A734940D66F571698692EE0F3816E12',
+    apiKey: 'your_key',
     format: 'json' //optional ['json', 'xml', 'vdf']
 });
 
