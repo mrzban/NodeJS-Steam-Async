@@ -1,0 +1,31 @@
+{
+  "name": "steam-web-async",
+  "version": "1.0.0",
+  "description": "Async wrapper for Steam Web API",
+  "main": "./lib/steam_async",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mrzban/NodeJS-Steam-Async.git"
+  },
+  "keywords": [
+    "Steam",
+    "API",
+    "Async",
+    "Wrapper"
+  ],
+  "author": "Mark Vorotyntsev",
+  "dependencies": {
+    "qs": "^6.1.0"
+  },
+  "engines": [
+    "node >= 8.0.0"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrzban/NodeJS-Steam-Async/issues"
+  },
+  "homepage": "https://github.com/mrzban/NodeJS-Steam-Async#readme"
+}
