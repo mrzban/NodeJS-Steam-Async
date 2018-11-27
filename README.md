@@ -11,7 +11,7 @@ This implementation is not supported, endorsed, or created by Valve - I'm just a
 ## Installation
 
 ```bash
-$ npm install steam-web
+$ npm install steam-web-async
 ```
 
 ### Methods
@@ -20,7 +20,7 @@ All methods accept a single options object.  The key names match the query strin
 
 All methods can be passed a ``.apiVersion`` property that overrides the default api version in the url.  Some methods (such as getSchema) will support different games on different versions (TF2 is only supported on v0001, CSGO is only supported on v0002). You can use this property to change the version for the api request if you are not getting back the expected response.
 
-If using JSON for results (default), the result will automatically be parsed into a json object before being passed to the callback.  Any other formats will return the raw data (xml or vdf).
+If using JSON for results (default), the result will automatically be parsed into a json object. Any other formats will return the raw data (xml or vdf).
 
 #### getNewsForApp
 
@@ -115,9 +115,9 @@ If using JSON for results (default), the result will automatically be parsed int
 ## Usage
 
 ```javascript
-var steam = require('steam-web');
+var steamAsync = require('steam-web-async');
 
-var s = new steam({
+var s = new steamAsync({
   apiKey: 'XXXXXXXXXXXXXXXX',
   format: 'json' //optional ['json', 'xml', 'vdf']
 });
@@ -125,22 +125,13 @@ var s = new steam({
 s.getNewsForApp({
   appid: 440,
   count: 3,
-  maxlength: 300,
-  callback: function(err, data) {
-    console.log(data);
-  }
+  maxlength: 300
 })
 s.getGlobalAchievementPercentagesForApp({
-  gameid: 440,
-  callback: function(err, data) {
-    console.log(data);
-  }
+  gameid: 440
 });
 s.getPlayerSummaries({
-  steamids: ['76561198037414410', '76561197960435530'],
-  callback: function(err, data) {
-    console.log(data);
-  }
+  steamids: ['76561198037414410', '76561197960435530']
 })
 s.getFriendList({
   steamid: '76561197960435530',
@@ -150,17 +141,11 @@ s.getFriendList({
   },
 })
 s.getSchema({
-  gameid: 440,
-  callback: function(err, data) {
-    console.log(data);
-  }
+  gameid: 440
 })
 s.getPlayerItems({
   gameid: 440,
-  steamid: '76561197960435530',
-  callback: function(err, data) {
-    console.log(data);
-  }
+  steamid: '76561197960435530'
 })
 s.getAssetPrices({
   appid: 440,  //can also use gameid instead for convenience
@@ -222,47 +207,26 @@ s.getPlayerBans({
     console.log(data);
   }
 })
-s.getAppList({
-  callback: function(err, data) {
-    console.log(data);
-  }
+s.getAppList(
 })
 s.getServersAtAddress({
-  addr: '193.192.58.116',
-  callback: function(err, data) {
-    console.log(data);
-  }
+  addr: '193.192.58.116'
 })    
 s.upToDateCheck({
   version: 100,
-  appid: 440,
-  callback: function(err, data) {
-    console.log(data);
-  }
+  appid: 440
 })  
 s.getUserGroupList({
-  steamid: '76561197960435530',
-  callback: function(err, data) {
-    console.log(data);
-  }
+  steamid: '76561197960435530'
 })    
 s.resolveVanityURL({
-  vanityurl: 'vincegogh',
-  callback: function(err, data) {
-    console.log(data);
-  }
+  vanityurl: 'vincegogh'
 })  
 s.getNumberOfCurrentPlayers({
-  appid: 440,
-  callback: function(err, data) {
-    console.log(data);
-  }
+  appid: 440
 })
 s.getSteamLevel({
-  steamid: '76561197960435530',
-  callback: function(err, data) {
-    console.log(data);
-  }
+  steamid: '76561197960435530'
 })    
 s.getBadges({
   steamid: '76561197960435530',
@@ -272,38 +236,20 @@ s.getBadges({
 })
 s.getCommunityBadgeProgress({
   steamid: '76561197960435530',
-  badgeid: 2,
-  callback: function(err, data) {
-    console.log(data);
-  }
+  badgeid: 2
 })  
-s.getServerInfo({
-  callback: function(err, data) {
-    console.log(data);
-  }
+s.getServerInfo(
 })    
-s.getSupportedAPIList({
-  callback: function(err, data) {
-    console.log(data);
-  }
+s.getSupportedAPIList(
 })
 s.getSchemaURL({
-  appid: 440,
-  callback: function(err, data) {
-    console.log(data);
-  }
+  appid: 440
 })    
 s.getStoreMetadata({
-  appid: 440,
-  callback: function(err, data) {
-    console.log(data);
-  }
+  appid: 440
 })
 s.getStoreStatus({
-  appid: 440,
-  callback: function(err, data) {
-    console.log(data);
-  }
+  appid: 440
 })
 ```
 
